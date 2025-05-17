@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import React from "react";
 import TransactionDashboard from "@/components/transactions/transaction-dashboard";
+import TransactionForm from "@/components/transactions/transaction-form";
 import { Transaction } from "@/types/transaction";
 
 const TransactionsPage = async () => {
@@ -25,7 +26,10 @@ const TransactionsPage = async () => {
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-bold">Transactions Dashboard</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Transactions Dashboard</h1>
+        <TransactionForm />
+      </div>
       <TransactionDashboard transactions={transactions as Transaction[]} />
 
       {/* Mantener la visualización JSON para depuración si es necesario */}
